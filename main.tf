@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "lambda_groupe2_v2"
+  name = "lambda_groupe6"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -31,7 +31,7 @@ resource "aws_iam_policy_attachment" "lambda_basic_execution" {
 }
 
 resource "aws_lambda_function" "current_time" {
-  function_name    = "lambda_groupe6_v2"
+  function_name    = "lambda_groupe6"
   runtime         = "nodejs18.x"
   handler         = "index.handler"
   role            = aws_iam_role.lambda_role.arn
