@@ -16,7 +16,7 @@ jobs:
   terraform:
     name: "Terraform Apply"
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,3 +44,8 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Output API URL
+        run: |
+          API_URL=$(terraform output -raw api_url)
+          echo "API URL: $API_URL"
